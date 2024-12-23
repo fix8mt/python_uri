@@ -51,9 +51,9 @@ jobs:
       with:
         submodules: true
 
-    - uses: astral-sh/setup-uv@v3
+    - uses: astral-sh/setup-uv@v5
 
-    - uses: pypa/cibuildwheel@v2.21
+    - uses: pypa/cibuildwheel@v2.22
       env:
         CIBW_PRERELEASE_PYTHONS: true
         CIBW_ARCHS_WINDOWS: auto ARM64
@@ -90,7 +90,7 @@ jobs:
         path: dist
 
     - name: Generate artifact attestation for sdist and wheels
-      uses: actions/attest-build-provenance@v1
+      uses: actions/attest-build-provenance@v2
       with:
         subject-path: "dist/*"
 
